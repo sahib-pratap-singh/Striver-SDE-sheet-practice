@@ -13,21 +13,13 @@ The test cases are generated so that the answer will be less than or equal to 2 
 
 * **Example 2**:<br>
 
-    Input: m = 3, n = 2
-    Output: 3
-    Explanation: From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
-    1. Right -> Down -> Down
-    2. Down -> Down -> Right
-    3. Down -> Right -> Down
+      Input: m = 3, n = 2
+      Output: 3
+      Explanation: From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
+      1. Right -> Down -> Down
+      2. Down -> Down -> Right
+      3. Down -> Right -> Down
 
-<!-- **➔ Your Task**
-
-      You dont need to read input or print anything. 
-
-<table align="center">
-      <tr><td><em><b>Expected Time Complexity</td> <td><em><b>Expected Auxiliary Space</td></tr>
-      <tr><td align="center">O(log(n))</td> <td align="center">O(1)</td></tr>
-</table> -->
 
 ### **Constraints** 
 
