@@ -8,17 +8,16 @@
 class Solution {
 public:
     vector<int> v;
-    TreeNode* inorder(TreeNode* root){
+    void postorder(TreeNode* root){
         if(root==NULL){
-            return NULL;
+            return;
         }
-        inorderTraversal(root->left);
+        postorder(root->left);
+        postorder(root->right);
         v.push_back(root->val);
-        inorderTraversal(root->right);
-        return root; 
     }
-    vector<int> inorderTraversal(TreeNode* root) {
-        inorder(root);
+    vector<int> postorderTraversal(TreeNode* root) {
+        postorder(root);
         return v;
     }
 };
@@ -28,27 +27,27 @@ public:
 //Space complexity: O(N)
 class Solution {
 public:
-    vector<int> inorderTraversal(TreeNode* root) {
-        vector<int> ans;
-        if(root==NULL)
-            return ans;
+    vector<int> postorderTraversal(TreeNode* root) {
         stack<TreeNode*> s;
         s.push(root);
-        TreeNode* cur=root;
-        while(!s.empty()){
-            while(cur && cur->left){
-                s.push(cur->left);
-                cur=cur->left;
-            }
-            cur=s.top();
-            s.pop();
-            if(cur!=NULL){
-                ans.push_back(cur->val);
-                s.push(cur->right);
-                cur=cur->right;
-            }
+        vector<int> v;
+        if(root==NULL){
+            return v;
         }
-        return ans;
+        while(!s.empty()){
+            TreeNode* cur=s.top();
+            s.pop();
+            v.push_back(cur->val);
+            if(cur->left){
+                s.push(cur->left);
+            }
+            if(cur->right){
+                s.push(cur->right);
+            }
+            
+        }
+        reverse(v.begin(),v.end());
+        return v;
     }
 };
 
